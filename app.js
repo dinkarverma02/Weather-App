@@ -80,18 +80,18 @@ let weather = {
       request.send(); // make the request
     },
   
-    // getLocation: function () {
-    //   function success(data) {
-    //     geocode.reverseGeocode(data.coords.latitude, data.coords.longitude);
-    //   }
+    getLocation: function () {
+      function success(data) {
+        geocode.reverseGeocode(data.coords.latitude, data.coords.longitude);
+      }
   
-    //   if (navigator.geolocation) {
-    //     navigator.geolocation.getCurrentPosition(success, console.error);
-    //   }
-    //   else {
-    //     weather.fetchWeather("Tokyo");
-    //   }
-    // },
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(success, console.error);
+      }
+      else {
+        weather.fetchWeather("Tokyo");
+      }
+    },
   };
   
   document.querySelector(".search button").addEventListener("click", function () {
@@ -108,5 +108,4 @@ let weather = {
   
   // By default website shows Toronto's Weather
   weather.fetchWeather("Toronto");
-  
   // geocode.getLocation();
